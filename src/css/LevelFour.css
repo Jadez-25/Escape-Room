@@ -1,0 +1,310 @@
+/* Intro Screen with Spotlight */
+.level-four-intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #000 0%, #111 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.enhanced-intro {
+    position: relative;
+    background: radial-gradient(circle at center, #000 0%, #111 100%);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spotlight-overlay {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: repeating-conic-gradient(from 0deg,
+            rgba(255, 255, 0, 0.1) 0deg 10deg,
+            transparent 10deg 20deg);
+    animation: rotateLights 6s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotateLights {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.level-four-intro-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.game-logo {
+    font-size: 6rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff0, 0 0 20px #f00;
+}
+
+.tagline {
+    font-size: 3rem;
+    margin-top: 1rem;
+    color: #ffcc00;
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.level-four-intro-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 20px red, 0 0 40px yellow;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.level-four-question-background {
+    background-image: url('@/assets/imgs/family-feud-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.level-four-question-section {
+    background: radial-gradient(circle, #004aad, #001f4d);
+    padding: 1rem;
+    border-radius: 20px;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 0 30px #ffcc00;
+}
+
+.level-four-question-card {
+    margin-top: 2rem;
+}
+
+.level-four-answer-btn {
+    background-color: #fff;
+    border: 3px solid #000;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.level-four-answer-btn:hover {
+    transform: scale(1.05);
+    background-color: #ffcc00;
+}
+
+@keyframes lights {
+    0% {
+        box-shadow: 0 0 10px #fff;
+    }
+
+    100% {
+        box-shadow: 0 0 30px #ff0000;
+    }
+}
+
+.score-top {
+    font-size: 2rem;
+    color: #00f;
+    background-color: #000;
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin-bottom: 0.125rem;
+    text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Digital-7', 'Impact', sans-serif;
+    box-shadow: 0 0 5px #00f;
+}
+
+.scoreboard {
+    background: linear-gradient(to bottom, #004aad, #002f6c);
+    border: 8px solid #ffcc00;
+    border-radius: 20px;
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: 0.5rem auto;
+    color: white;
+    font-family: 'Impact', sans-serif;
+    box-shadow: 0 0 20px #ffcc00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative
+}
+
+.scoreboard-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: #001f4d;
+    margin: 0.2rem 0;
+    font-size: 1.8rem;
+    align-items: center;
+}
+
+.blank-answer {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    color: #ccc;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-left: 1rem;
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+}
+
+/* Round Display */
+.round-display {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem auto 1rem 2rem;
+    /* Adds left margin */
+    color: #fff;
+    background-color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    display: inline-block;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Family Feud Style Question Board */
+.feud-board {
+    background: linear-gradient(to bottom, #004aad, #002f6c);
+    border: 8px solid #ffcc00;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 800px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 20px #ffcc00;
+    font-family: 'Impact', sans-serif;
+}
+
+.feud-header {
+    font-size: 1rem;
+    color: #ffcc00;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.feud-question {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+/* Option Buttons */
+.level-four-options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.level-four-option-button {
+    background-color: #004aad;
+    border: 4px solid #ffcc00;
+    color: #fff;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #ffcc00;
+}
+
+.level-four-option-button:hover {
+    background-color: #000;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Strike X */
+.strike-x {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    color: red;
+    font-weight: bold;
+    animation: flash 1s ease-in-out;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}

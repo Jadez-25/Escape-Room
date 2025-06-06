@@ -1,0 +1,93 @@
+.certificate-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  background: linear-gradient(to bottom, #fdf6e3, #f4f4f4);
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.certificate {
+  background: #fff;
+  padding: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  font-family: 'Georgia', serif;
+  position: relative;
+}
+
+.cert-border {
+  border: 12px double #d4af37;
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.cert-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #2e2e2e;
+  font-weight: bold;
+}
+
+.cert-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.cert-name {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0.5rem 0;
+}
+
+.cert-body {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  color: #444;
+}
+
+.cert-details {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.cert-footer {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #777;
+  font-size: 1rem;
+}
+
+.stamp {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  opacity: 0.9;
+}
+
+.download-btn {
+  margin-top: 2rem;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #FFA500, #FFD700);
+}

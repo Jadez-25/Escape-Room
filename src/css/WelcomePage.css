@@ -1,0 +1,135 @@
+.welcome-page-fullscreen-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+}
+
+.welcome-page-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: filter 1.5s ease, opacity 1.5s ease;
+}
+
+.welcome-page-video-background.fade-video {
+    filter: blur(2px);
+    opacity: 0.2;
+    transition: opacity 2s ease-in-out, filter 2s ease-in-out;
+}
+
+.welcome-page-video-background.dimmed {
+    filter: brightness(0.3) blur(2px);
+}
+
+.fade-video {
+    opacity: 0.2; /* Or 0 for full fade-out */
+    transition: opacity 2s ease-in-out;
+}
+
+.welcome-page-form-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    z-index: 30;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 2s ease forwards;
+    animation-delay: 0.2s; /* Slight delay for a smoother transition */
+}
+
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-page-form-content {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.welcome-page-title-big {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.welcome-page-saga-title {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.welcome-page-highlight {
+    color: #dc2626;
+}
+
+.welcome-page-description {
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+.welcome-page-typewriter-text {
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fbbf24;
+}
+
+.welcome-page-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.welcome-page-input-field,
+.welcome-page-select-field {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.welcome-page-input-field {
+    color: #fff;
+}
+
+.welcome-page-select-field {
+    color: #fff;
+}
+
+.welcome-page-start-button {
+    background-color: #16a34a;
+    color: white;
+    margin-left: 0;
+    font-weight: 700;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.welcome-page-start-button:hover {
+    background-color: #15803d;
+}

@@ -2,8 +2,7 @@ import { Typewriter } from 'react-simple-typewriter';
 
 const TypewriterText = () => (
     <Typewriter
-        /*words={['The clock is ticking. Will you escape in time?']}*/
-        words={['Will you break out in time - or break down under pressure?']}
+        words={['Will you escape in time or break down under pressure?']}
         loop={false}
         cursor
         cursorStyle="|"

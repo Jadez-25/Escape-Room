@@ -30,7 +30,7 @@ const WelcomeForm = ({ playerName, setPlayerName, department, setDepartment, han
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
             >
-                Buckle up for a wild adventure through five epic zones!<br />
+                Buckle up for a wild adventure through four epic zones!<br />
                 Face the frenzy in <strong>Health Havoc</strong>, escape the heat in <strong>Emergency Escapes</strong>,<br />
                 zap into <strong>Tech Trouble</strong>, and crush the <strong>Ultimate Showdown</strong>.
             </motion.p>

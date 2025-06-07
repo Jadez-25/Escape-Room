@@ -1,4 +1,4 @@
-const IntroVideo = ({ videoRef, isVideoLoading, handleVideoEnd, showForm }) => {
+const IntroVideo = ({ videoRef, isVideoLoading, handleVideoEnd, showForm, muted }) => {
     return (
         <>
             {isVideoLoading && (
@@ -10,6 +10,7 @@ const IntroVideo = ({ videoRef, isVideoLoading, handleVideoEnd, showForm }) => {
                 ref={videoRef}
                 className={`welcome-page-video-background ${showForm ? 'welcome-page-fade-video' : ''}`}
                 autoPlay
+                muted={muted}
                 playsInline
                 onEnded={handleVideoEnd}
                 controls={false}

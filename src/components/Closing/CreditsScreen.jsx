@@ -66,7 +66,7 @@ const CreditsScreen = ({ onContinue }) => {
         gravity={0.3}
       />
       <div className="credits-roll" ref={scrollRef}>
-        <h2>🎮 Created by the LAAA ICT Department</h2>
+        <h2>🎮 Created by the ICT Department</h2>
         <p className="intro-thanks">
           This game was proudly created by the ICT Department — Alison Matieriene, Dwayne Lee Fook, Evrol Mark, Jada Cropper, Kenrick Pierre, Mahadeo Basdeo,
           Shayil Ali and Tsevi Rajkumar. We had a lot of fun bringing this project to life and hope you enjoyed playing it just as much as we enjoyed making it! Our goal was to make 

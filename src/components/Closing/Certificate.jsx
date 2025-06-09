@@ -3,9 +3,10 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import Confetti from 'react-confetti';
 import stampImage from '@/assets/imgs/stamp.png';
+import watermarkImage from '@/assets/imgs/watermark.png';
 import '@/css/Certificate.css';
 
-const Certificate = ({ name, department, score }) => {
+const Certificate = ({ name, department, score, duration }) => {
     const certRef = useRef();
     const [windowSize, setWindowSize] = useState({
         width: window.innerWidth,
@@ -46,6 +47,7 @@ const Certificate = ({ name, department, score }) => {
             />
 
             <div className="certificate" ref={certRef}>
+                <img src={watermarkImage} alt="Watermark" className="watermark" />
                 <div className="cert-border">
                     <h1 className="cert-title">Certificate of Completion</h1>
                     <p className="cert-subtitle">This certifies that</p>
@@ -56,8 +58,9 @@ const Certificate = ({ name, department, score }) => {
                     </p>
                     <p className="cert-details">
                         <strong>Final Score:</strong> {score} <br />
+                        <strong>Total Time:</strong> {duration}
                     </p>
-                    <p className="cert-footer">Issued by: ICT Department</p>
+                    <p className="cert-footer">Issued by: I.C.T Department</p>
                     <img src={stampImage} alt="Official Stamp" className="stamp" />
                 </div>
             </div>

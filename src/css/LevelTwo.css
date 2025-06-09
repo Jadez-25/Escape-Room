@@ -56,15 +56,17 @@
   padding: 1rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   border: 2px solid #f0c808;
   font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .gotham-button:hover {
   background-color: #f0c808;
   color: black;
   transform: scale(1.05);
+  box-shadow: 0 0 10px #f0c808;
 }
 
 .level-two-result-container h2 {
@@ -117,7 +119,7 @@
 }
 
 .level-two-briefing-text {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-family: 'Share Tech Mono', sans-serif;
   margin: 2rem 0;
   line-height: 1.6;
@@ -168,17 +170,20 @@
 }
 
 .level-two-choices-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
   gap: 1rem;
   margin-top: 2rem;
-  width: 80%;
+  width: 100%;
+  justify-content: center;
 }
 
 .level-two-choice-button {
   text-align: left;
   padding: 1rem;
   transition: all 0.3s;
+  width: 100%;
+  font-size: 1rem;
 }
 
 .level-two-choice-button:hover {
@@ -195,7 +200,7 @@
 
 .level-two-outcome-container {
   background-color: rgba(0, 0, 0, 0.9);
-  padding: 5rem;
+  padding: 5rem 2rem 2rem 2rem;
   border: 3px solid #f0c808;
   border-radius: 10px;
   max-width: 800px;
@@ -208,9 +213,7 @@
 }
 
 .level-two-score {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
+  margin: 1.5rem 0; /* Adds space above and below */
   background-color: rgba(0, 0, 0, 0.85);
   border: 2px solid #f0c808;
   padding: 0.75rem 1.5rem;
@@ -218,6 +221,106 @@
   font-family: 'Share Tech Mono', monospace;
   font-size: 1.2rem;
   color: #f0c808;
-  z-index: 10;
   box-shadow: 0 0 10px #f0c808;
+  display: inline-block;
+  text-align: center;
+}
+
+
+/* Medium screens (1024px and below) */
+@media (max-width: 1024px) {
+  .level-two-briefing-container,
+  .level-two-scenario-container,
+  .level-two-outcome-container {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .gotham-title {
+    font-size: 2.2rem;
+  }
+
+  .level-two-briefing-text,
+  .level-two-scenario-text {
+    font-size: 1.2rem;
+  }
+
+  .gotham-button {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .level-two-score {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Small screens (768px and below) */
+@media (max-width: 768px) {
+  .level-two-scenario-container,
+  .level-two-outcome-container,
+  .level-two-briefing-container {
+    top: auto;
+    left: auto;
+    transform: none;
+    position: relative;
+    margin: 2rem auto;
+    width: 90%;
+    height: auto;
+  }
+
+  .level-two-scenario-overlay {
+    padding: 1rem;
+  }
+
+  .level-two-choices-container {
+    width: 100%;
+  }
+
+  .level-two-choice-button {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  .gotham-title {
+    font-size: 1.8rem;
+  }
+
+  .level-two-briefing-text,
+  .level-two-scenario-text {
+    font-size: 1rem;
+  }
+
+  .level-two-score {
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small screens (480px and below) */
+@media (max-width: 480px) {
+  .gotham-title {
+    font-size: 1.5rem;
+  }
+
+  .level-two-choices-container {
+    grid-template-columns: 1fr;
+  }
+
+  .level-two-briefing-text,
+  .level-two-scenario-text {
+    font-size: 0.95rem;
+  }
+
+  .gotham-button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+
+  .level-two-choice-button {
+    text-align: center;
+  }
 }

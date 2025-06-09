@@ -288,6 +288,8 @@ typing {
   color: #ccffcc;
   font-size: 1.5rem;
   max-width: 800px;
+  width: 100%;
+  box-sizing: border-box
 }
 
 .level-three-question-card {
@@ -300,6 +302,8 @@ typing {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  box-sizing: border-box
 }
 
 .level-three-question-text {
@@ -377,6 +381,17 @@ typing {
   padding: 10px 20px;
   font-size: 1em;
   cursor: pointer;
+  background-color: #001f1f;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.level-three-button-group button:hover {
+  background-color: #004d4d;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00ffcc;
 }
 
 .level-three-failure-message {
@@ -393,11 +408,160 @@ typing {
 
 .level-three-score {
   font-family: 'VT323', monospace;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #00ff99;
   background: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
-  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  margin-top: 0.5rem;
   z-index: 2;
   position: relative;
+}
+
+.matrix-skip-container {
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.matrix-skip-button {
+  background: rgba(0, 0, 0, 0.7);
+  color: #00ff99;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  padding: 0.75rem 2rem;
+  border: 2px solid #00ff99;
+  border-radius: 10px;
+  cursor: pointer;
+  text-shadow: 0 0 5px #00ff99;
+  box-shadow: 0 0 10px #00ff99, inset 0 0 10px #00ff99;
+  transition: all 0.3s ease;
+}
+
+.matrix-skip-button:hover {
+  background-color: #00ff99;
+  color: black;
+  text-shadow: none;
+  transform: scale(1.05);
+}
+
+.level-three-option-button,
+.matrix-skip-button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Medium screens (1024px and below) */
+@media (max-width: 1024px) {
+  .glitch-title {
+    font-size: 3rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .matrix-message {
+    font-size: 2rem;
+  }
+
+  .pill-container {
+    gap: 2rem;
+  }
+
+  .pill-section {
+    max-width: 80%;
+  }
+
+  .level-three-questions-container {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .level-three-question-card {
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+
+  .level-three-option-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+/* Tablet screens (768px and below) */
+@media (max-width: 768px) {
+  .glitch-title {
+    font-size: 2.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .matrix-message {
+    font-size: 1.5rem;
+  }
+
+  .pill-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .pill-section {
+    max-width: 100%;
+  }
+
+  .pill-description {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .level-three-questions-container {
+    padding: 1rem;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  .level-three-question-card {
+    padding: 12px;
+    font-size: 1rem;
+    margin: 10px;
+  }
+
+  .level-three-option-button {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+  }
+
+  .level-three-button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .matrix-skip-button {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+/* Mobile screens (480px and below) */
+@media (max-width: 480px) {
+  .glitch-title {
+    font-size: 2rem;
+  }
+
+  .matrix-message {
+    font-size: 1.2rem;
+  }
+
+  .pill {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .level-three-option-button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .level-three-score {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
 }

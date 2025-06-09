@@ -124,8 +124,24 @@ const LevelOne = ({ onReset, onComplete }) => {
         }, FEEDBACK_ANIMATION_DURATION);
     };
 
+    const handleSkipBriefing = () => {
+        const briefingAudio = briefingAudioRef.current;
+        const bgMusic = bgMusicRef.current;
+
+        // Stop the briefing audio
+        briefingAudio.pause();
+        briefingAudio.currentTime = 0;
+
+        // Set state to show buttons
+        setBriefingEnded(true);
+
+        // Start background music
+        bgMusic.muted = false;
+        bgMusic.play();
+    };
+
     const handleComplete = () => {
-        const levelOneScore = correctCount * 5;
+        const levelOneScore = correctCount * 10;
         onComplete(levelOneScore); // Send score up to GameFlow
     };
 
@@ -171,6 +187,7 @@ const LevelOne = ({ onReset, onComplete }) => {
                     briefingEnded={briefingEnded}
                     onAccept={handleAccept}
                     onDecline={handleDecline}
+                    onSkipBriefing={handleSkipBriefing}
                 />
             )}
 
@@ -198,6 +215,7 @@ const LevelOne = ({ onReset, onComplete }) => {
             {missionComplete && !missionFailed && (
                 <MissionComplete
                     correctCount={correctCount}
+                    score={correctCount * 10}
                     showNextLevelButton={showNextLevelButton}
                     onRestart={handleRestart}
                     onComplete={handleComplete}

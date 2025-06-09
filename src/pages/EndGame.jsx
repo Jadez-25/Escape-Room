@@ -3,7 +3,7 @@ import FinaleScreen from '@/components/Closing/FinaleScreen';
 import CreditsScreen from '@/components/Closing/CreditsScreen';
 import Certificate from '@/components/Closing/Certificate';
 
-const EndGame = ({ user, totalScore  }) => {
+const EndGame = ({ user, totalScore, duration, onReset }) => {
   const audioRef = useRef(null);
   const [stage, setStage] = useState('finale'); // 'finale', 'credits', 'certificate'
 
@@ -34,6 +34,7 @@ const EndGame = ({ user, totalScore  }) => {
           name={user.name}
           department={user.department}
           score={totalScore}
+          duration={duration}
           onContinue={goToNextStage}
         />
       )}

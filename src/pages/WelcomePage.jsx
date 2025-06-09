@@ -11,31 +11,32 @@ const WelcomePage = ({ onStart }) => {
     const [isMuted, setIsMuted] = useState(true);
     const [hasInteracted, setHasInteracted] = useState(false);
     const [hideUnmute, setHideUnmute] = useState(false);
-    
+
     const videoRef = useRef(null);
     const audioRef = useRef(null);
+    const hasStartedAudio = useRef(false); // Prevent multiple play() calls
 
     const startAudioLoop = () => {
-        if (audioRef.current) {
-            audioRef.current.currentTime = 0;
+        if (hasStartedAudio.current || !audioRef.current) return;
+        hasStartedAudio.current = true;
 
-            // Remove old listener if exists
-            if (audioRef.current._handleTimeUpdate) {
-                audioRef.current.removeEventListener('timeupdate', audioRef.current._handleTimeUpdate);
-            }
+        audioRef.current.currentTime = 0;
 
-            const handleTimeUpdate = () => {
-                if (audioRef.current.currentTime >= 30) {
-                    audioRef.current.currentTime = 0;
-                }
-            };
-
-            audioRef.current._handleTimeUpdate = handleTimeUpdate;
-            audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
-            
-            // Try to play (in case already interacted)
-            audioRef.current.play().catch(err => console.warn("Audio play error:", err));
+        // Remove old listener if exists
+        if (audioRef.current._handleTimeUpdate) {
+            audioRef.current.removeEventListener('timeupdate', audioRef.current._handleTimeUpdate);
         }
+
+        const handleTimeUpdate = () => {
+            if (audioRef.current && audioRef.current.currentTime >= 30) {
+                audioRef.current.currentTime = 0;
+            }
+        };
+
+        audioRef.current._handleTimeUpdate = handleTimeUpdate;
+        audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
+
+        audioRef.current.play().catch(err => console.warn("Audio play error:", err));
     };
 
     const handleVideoEnd = () => {
@@ -43,7 +44,7 @@ const WelcomePage = ({ onStart }) => {
 
         if (hasInteracted && audioRef.current) {
             audioRef.current.muted = false;
-            startAudioLoop(); // Safe to start audio
+            startAudioLoop();
         }
     };
 
@@ -55,20 +56,6 @@ const WelcomePage = ({ onStart }) => {
             alert("Please enter your name and select a department.");
         }
     };
-
-    /*
-    const handleUserInteraction = () => {
-        if (hasInteracted) return; // Only allow once
-
-        const video = videoRef.current;
-        if (video) {
-            video.muted = false;
-            //video.currentTime = 0;
-            video.play();
-        }
-
-        setHasInteracted(true);
-    }; */
 
     const handleUnmute = () => {
         setIsMuted(false);
@@ -95,10 +82,7 @@ const WelcomePage = ({ onStart }) => {
     }, []);
 
     return (
-        <div
-            className="welcome-page-fullscreen-container"
-            //onClick={handleUserInteraction} // Add click listener here
-        >
+        <div className="welcome-page-fullscreen-container">
             <IntroVideo
                 videoRef={videoRef}
                 isVideoLoading={isVideoLoading}
@@ -109,7 +93,6 @@ const WelcomePage = ({ onStart }) => {
 
             <div className="welcome-page-video-overlay" />
 
-            {/* Click to Unmute Button */}
             {isMuted && !hasInteracted && (
                 <button className={`welcome-page-unmute-button ${hideUnmute ? 'hide' : ''}`} onClick={handleUnmute}>
                     {showForm ? "🔊 Click to Enable Sound" : "🔊 Click to Unmute Video"}

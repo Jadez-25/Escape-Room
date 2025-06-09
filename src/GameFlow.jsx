@@ -5,16 +5,19 @@ import LevelTwo from '@/pages/LevelTwo';
 import LevelThree from '@/pages/LevelThree';
 import LevelFour from '@/pages/LevelFour';
 import EndGame from '@/pages/EndGame';
+import GameTimer from '@/components/GameTimer';
 
 const GameFlow = () => {
   const [currentStage, setCurrentStage] = useState('welcome');
   const [playerData, setPlayerData] = useState({ name: '', department: '' });
   const [totalScore, setTotalScore] = useState(0);
-  const [levelFourScore, setLevelFourScore] = useState(0);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
 
   const handleStart = (name, department) => {
     setPlayerData({ name, department });
     setTotalScore(0); // Reset score when restarting
+    setStartTime(new Date()); // Start timer
     setCurrentStage('level1');
   };
 
@@ -34,8 +37,8 @@ const GameFlow = () => {
   };
 
   const handleLevelFourComplete = (score) => {
-    setLevelFourScore(score);
     setTotalScore(prev => prev + score);
+    setEndTime(new Date()); // Stop timer
     setCurrentStage('end');
   };
 
@@ -43,11 +46,24 @@ const GameFlow = () => {
     setCurrentStage('welcome');
     setPlayerData({ name: '', department: '' });
     setTotalScore(0);
-    setLevelFourScore(0);
+    setStartTime(null);
+    setEndTime(null);
+  };
+
+  const getDuration = () => {
+    if (!startTime || !endTime) return '';
+
+    const durationMs = endTime - startTime;
+    const minutes = Math.floor(durationMs / 60000);
+    const seconds = Math.floor((durationMs % 60000) / 1000);
+    return `${minutes}mins ${seconds}sec`;
   };
 
   return (
     <>
+      {currentStage !== 'end' && (
+        <GameTimer startTime={startTime} endTime={endTime} />
+      )}
       {currentStage === 'welcome' && (
         <WelcomePage onStart={handleStart} />
       )}
@@ -67,6 +83,7 @@ const GameFlow = () => {
         <EndGame
           user={playerData}
           totalScore={totalScore}
+          duration={getDuration()}
           onReset={handleReset}
         />
       )}

@@ -5,6 +5,9 @@
     overflow: hidden;
     background-color: black;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 .welcome-page-video-background {
@@ -29,7 +32,8 @@
 }
 
 .welcome-page-fade-video {
-    opacity: 0.2; /* Or 0 for full fade-out */
+    opacity: 0.2;
+    /* Or 0 for full fade-out */
     transition: opacity 2s ease-in-out;
 }
 
@@ -46,7 +50,8 @@
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInSlideUp 2s ease forwards;
-    animation-delay: 0.2s; /* Slight delay for a smoother transition */
+    animation-delay: 0.2s;
+    /* Slight delay for a smoother transition */
 }
 
 @keyframes fadeInSlideUp {
@@ -54,6 +59,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -61,11 +67,9 @@
 }
 
 .welcome-page-form-content {
-    max-width: 600px;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 1rem;
 }
 
 .welcome-page-title-big {
@@ -96,26 +100,30 @@
 }
 
 .welcome-page-input-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .welcome-page-input-field,
 .welcome-page-select-field {
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
-    border: none;
+    border: 1px solid #444;
     font-size: 1rem;
     font-weight: 500;
+    background-color: #111;
+    color: #fff;
+    flex: 1;
+    min-width: 200px;
 }
 
-.welcome-page-input-field {
+input,
+select {
+    background-color: #111;
     color: #fff;
-}
-
-.welcome-page-select-field {
-    color: #fff;
+    border: 1px solid #444;
 }
 
 .welcome-page-start-button {
@@ -123,7 +131,7 @@
     color: white;
     margin-left: 0;
     font-weight: 700;
-    padding: 0.75rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
     border: none;
     cursor: pointer;
@@ -160,4 +168,92 @@
 .welcome-page-unmute-button.hide {
     opacity: 0;
     pointer-events: none;
+}
+
+/* Medium screens (1024px and up)*/
+@media (min-width: 1024px) {
+    .welcome-page-title-big {
+        font-size: 3.5rem;
+    }
+
+    .welcome-page-saga-title {
+        font-size: 4rem;
+    }
+
+    .welcome-page-description,
+    .welcome-page-typewriter-text {
+        font-size: 1.2rem;
+    }
+
+    .welcome-page-input-section {
+        flex-direction: row;
+    }
+
+    .welcome-page-form-overlay {
+        padding: 3rem;
+    }
+}
+
+/* Tablet screens (768px and below) */
+@media (max-width: 768px) {
+    .welcome-page-title-big {
+        font-size: 2rem;
+    }
+
+    .welcome-page-saga-title {
+        font-size: 2.5rem;
+    }
+
+    .welcome-page-description,
+    .welcome-page-typewriter-text {
+        font-size: 1rem;
+    }
+
+    .welcome-page-input-section {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .welcome-page-form-overlay {
+        padding: 2rem;
+    }
+
+    .welcome-page-unmute-button {
+        top: 10px;
+        right: 10px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile screens (480px and below) */
+@media (max-width: 480px) {
+    .welcome-page-title-big {
+        font-size: 1.8rem;
+    }
+
+    .welcome-page-saga-title {
+        font-size: 2rem;
+    }
+
+    .welcome-page-description,
+    .welcome-page-typewriter-text {
+        font-size: 0.9rem;
+    }
+
+    .welcome-page-start-button {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    .welcome-page-unmute-button {
+        top: 8px;
+        right: 8px;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.65rem;
+    }
+
+    .welcome-page-form-overlay {
+        padding: 1rem;
+    }
 }

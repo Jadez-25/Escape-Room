@@ -28,7 +28,7 @@ const groupedCredits = [
   {
     category: 'Testing',
     roles: [
-      { role: 'Testers', names: ['Alison Matieriene', 'Shayil Ali'] },
+      { role: 'Testers', names: ['Alison Matieriene', 'Dwayne Lee Fook', 'Evrol Mark', 'Jada Cropper', 'Kenrick Pierre', 'Tsevi Rajkumar'] },
     ],
   },
 ];
@@ -40,7 +40,7 @@ const CreditsScreen = ({ onContinue }) => {
   useEffect(() => {
     setWindowSize({ width: window.innerWidth, height: window.innerHeight });
 
-    const duration = 45000; // 45 seconds for full scroll
+    const duration = 50000; // 50 seconds for full scroll
     const timer = setTimeout(() => {
       if (onContinue) onContinue();
     }, duration);
@@ -68,8 +68,8 @@ const CreditsScreen = ({ onContinue }) => {
       <div className="credits-roll" ref={scrollRef}>
         <h2>🎮 Created by the ICT Department</h2>
         <p className="intro-thanks">
-          This game was proudly created by the ICT Department — Alison Matieriene, Dwayne Lee Fook, Evrol Mark, Jada Cropper, Kenrick Pierre, Mahadeo Basdeo,
-          Shayil Ali and Tsevi Rajkumar. We had a lot of fun bringing this project to life and hope you enjoyed playing it just as much as we enjoyed making it! Our goal was to make 
+          This game was proudly created by the ICT Department — Alison Matieriene, Dwayne Lee Fook, Evrol Mark, Jada Cropper, Kenrick Pierre, Mahadeo Basdeo
+          and Tsevi Rajkumar. We had a lot of fun bringing this project to life and hope you enjoyed playing it just as much as we enjoyed making it! Our goal was to make 
           learning about workplace safety and wellness both enjoyable and meaningful. We truly believe that safety starts with awareness, and we hope this game has 
           helped you build that mindset. Thank you for being part of this experience. We’re excited to see how you apply what you’ve 
           learned to create a safer, healthier workplace every day.

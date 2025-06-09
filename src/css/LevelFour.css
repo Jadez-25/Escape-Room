@@ -100,14 +100,22 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
     height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+
 }
 
 .level-four-question-section {
     background: radial-gradient(circle, #004aad, #001f4d);
-    padding: 1rem;
+    padding: 0.75rem;
     border-radius: 20px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     max-width: 900px;
     box-shadow: 0 0 30px #ffcc00;
 }
@@ -226,8 +234,8 @@ button {
     background: linear-gradient(to bottom, #004aad, #002f6c);
     border: 8px solid #ffcc00;
     border-radius: 20px;
-    padding: 1rem;
-    margin: 1rem auto;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
     max-width: 800px;
     color: white;
     text-align: center;
@@ -256,15 +264,18 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 1rem;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    max-height: 40vh;
 }
 
 .level-four-option-button {
     background-color: #004aad;
     border: 4px solid #ffcc00;
     color: #fff;
-    padding: 1rem 2rem;
-    margin: 1rem;
-    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
     font-weight: bold;
     border-radius: 12px;
     cursor: pointer;
@@ -306,5 +317,192 @@ button {
     100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+.level-four-end-screen {
+    text-align: center;
+    padding: 2rem;
+    background-color: #111;
+    color: #fff;
+    border-radius: 20px;
+    margin-top: 3rem;
+}
+
+.level-four-restart-button {
+    margin-top: 1.5rem;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.level-four-restart-button:hover {
+    background-color: #e0a800;
+}
+
+/* Responsive Enhancements for Level Four */
+
+@media (max-height: 800px),
+(max-width: 1024px) {
+    .level-four-question-section {
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+    }
+
+    .feud-board {
+        padding: 0.5rem;
+        margin: 0.5rem auto;
+    }
+
+    .level-four-options-container {
+        padding: 0.5rem;
+        gap: 0.5rem;
+        max-height: 40vh;
+    }
+
+    .level-four-option-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        margin: 0.3rem 0;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .level-four-question-section,
+    .scoreboard,
+    .feud-board {
+        max-width: 900px;
+    }
+
+    .level-four-option-button {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 1199px) {
+    .level-four-question-section {
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+    }
+
+    .feud-board {
+        padding: 0.5rem;
+        margin: 0.5rem auto;
+    }
+
+    .level-four-options-container {
+        padding: 0.5rem;
+        gap: 0.5rem;
+        max-height: 40vh;
+    }
+
+    .level-four-option-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        margin: 0.3rem 0;
+    }
+
+    .score-top,
+    .round-display {
+        font-size: 1.5rem;
+    }
+
+    .feud-question {
+        font-size: 1.5rem;
+    }
+
+    .round-display {
+        font-size: 1rem;
+        padding: 0.3rem 0.6rem;
+        margin: 0.5rem auto 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .game-logo {
+        font-size: 3rem;
+    }
+
+    .tagline {
+        font-size: 1.5rem;
+    }
+
+    .feud-question {
+        font-size: 1.2rem;
+    }
+
+    .score-top,
+    .round-display {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .scoreboard-item {
+        font-size: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .level-four-option-button {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+        width: 90%;
+    }
+
+    .level-four-options-container {
+        flex-direction: column;
+        align-items: center;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-logo {
+        font-size: 2.2rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .feud-question {
+        font-size: 1rem;
+    }
+
+    .score-top,
+    .round-display {
+        font-size: 1rem;
+    }
+
+    .level-four-option-button {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .scoreboard-item {
+        font-size: 1rem;
+    }
+
+    .level-four-end-screen {
+        padding: 1rem;
+    }
+
+    .level-four-restart-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .round-display {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.5rem;
+        margin: 0.3rem auto 0.3rem 0.5rem;
     }
 }

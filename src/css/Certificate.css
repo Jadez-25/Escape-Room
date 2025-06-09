@@ -20,11 +20,24 @@
   position: relative;
 }
 
+.watermark {
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  width: 60%;
+  opacity: 0.1;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .cert-border {
   border: 12px double #d4af37;
   padding: 3rem;
   text-align: center;
   position: relative;
+  z-index: 1;
 }
 
 .cert-title {
@@ -85,9 +98,75 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-bottom: 2rem;
 }
 
 .download-btn:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, #FFA500, #FFD700);
+}
+
+@media (max-width: 1024px) {
+  .certificate-wrapper {
+    padding: 4rem;
+  }
+
+  .certificate {
+    padding: 1.5rem;
+  }
+
+  .cert-border {
+    padding: 2rem;
+  }
+
+  .cert-title {
+    font-size: 2.2rem;
+  }
+
+  .cert-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .cert-name {
+    font-size: 1.8rem;
+  }
+
+  .cert-body,
+  .cert-details {
+    font-size: 1.1rem;
+  }
+
+  .cert-footer {
+    font-size: 0.9rem;
+  }
+
+  .stamp {
+    width: 80px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .download-btn {
+    font-size: 1rem;
+    padding: 10px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-title {
+    font-size: 1.8rem;
+  }
+
+  .cert-name {
+    font-size: 1.5rem;
+  }
+
+  .cert-body,
+  .cert-details {
+    font-size: 1rem;
+  }
+
+  .stamp {
+    width: 70px;
+  }
 }

@@ -1,7 +1,7 @@
 import ethanImage from '@/assets/imgs/ethan-hunt.png';
 import '@/css/LevelOne.css';
 
-const BriefingCard = ({ briefingEnded, onAccept, onDecline }) => (
+const BriefingCard = ({ briefingEnded, onAccept, onDecline, onSkipBriefing }) => (
     <div className="level-one-briefing-card">
         <img src={ethanImage} alt="Ethan Hunt" className="level-one-briefing-image" />
         <h2 className="level-one-briefing-title">📝 Mission Briefing</h2>
@@ -11,6 +11,14 @@ const BriefingCard = ({ briefingEnded, onAccept, onDecline }) => (
             reduce stress, and help you survive another high-stakes day at HQ. You’ve got the
             following targets, make the right call.
         </p>
+
+        {/* Skip button always visible during briefing */}
+        {!briefingEnded && (
+            <div className="level-one-skip-container">
+                <button className={`level-one-skip-button ${briefingEnded ? 'fade-out' : ''}`} onClick={onSkipBriefing}>Skip Briefing</button>
+            </div>
+        )}
+
         <div className={`level-one-button-group ${briefingEnded ? "fade-in" : "hidden"}`}>
             <button className="level-one-option-button" onClick={onAccept}>Accept Mission</button>
             <button className="level-one-decline" onClick={onDecline}>Decline Mission</button>

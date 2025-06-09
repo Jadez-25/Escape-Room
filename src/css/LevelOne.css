@@ -177,6 +177,7 @@
 }
 
 @keyframes shake {
+
     0%,
     100% {
         transform: translateX(0);
@@ -287,4 +288,150 @@
 .level-one-option-button:focus {
     outline: 2px solid #66fcf1;
     outline-offset: 3px;
+}
+
+.level-one-skip-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.level-one-skip-button {
+    background-color: #1f2833;
+    color: #66fcf1;
+    border: 1px solid #45a29e;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.6s ease;
+    box-shadow: 0 0 10px #45a29e;
+}
+
+.level-one-skip-button:hover {
+    background-color: #45a29e;
+    color: #0b0c10;
+    box-shadow: 0 0 20px #66fcf1;
+}
+
+.level-one-skip-button.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Medium screens (1024px and below) */
+@media (max-width: 1024px) {
+
+    .level-one-briefing-card,
+    .level-one-questions-section,
+    .level-one-mission-complete,
+    .level-one-decline-message,
+    .level-one-mission-failed {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .level-one-briefing-title,
+    .level-one-question-title,
+    .level-one-mission-title {
+        font-size: 1.8rem;
+    }
+
+    .level-one-briefing-text,
+    .level-one-question-text {
+        font-size: 1.1rem;
+    }
+
+    .level-one-briefing-image {
+        width: 150px;
+    }
+
+    .level-one-option-button,
+    .level-one-decline,
+    .level-one-next-level-button,
+    .level-one-restart-button,
+    .level-one-skip-button {
+        font-size: 1rem;
+        padding: 10px 16px;
+    }
+}
+
+/* Tablet screens (768px and below) */
+@media (max-width: 768px) {
+
+    .level-one-briefing-card,
+    .level-one-questions-section,
+    .level-one-mission-complete,
+    .level-one-decline-message,
+    .level-one-mission-failed {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .level-one-briefing-title,
+    .level-one-question-title,
+    .level-one-mission-title {
+        font-size: 1.5rem;
+    }
+
+    .level-one-briefing-text,
+    .level-one-question-text {
+        font-size: 1.1rem;
+    }
+
+    .level-one-option-button,
+    .level-one-decline,
+    .level-one-next-level-button,
+    .level-one-restart-button,
+    .level-one-skip-button {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+    }
+
+    .level-one-heart {
+        font-size: 2rem;
+    }
+
+    .level-one-energy-bar {
+        width: 95%;
+    }
+}
+
+/* Mobile screens (480px and below) */
+@media (max-width: 480px) {
+
+    .level-one-briefing-title,
+    .level-one-question-title,
+    .level-one-mission-title {
+        font-size: 1.3rem;
+    }
+
+    .level-one-briefing-text,
+    .level-one-question-text {
+        font-size: 1rem;
+    }
+
+    .level-one-option-button,
+    .level-one-decline,
+    .level-one-next-level-button,
+    .level-one-restart-button,
+    .level-one-skip-button {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .level-one-button-group,
+    .level-one-options-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .level-one-briefing-image {
+        width: 180px;
+    }
+
+    .level-one-heart {
+        font-size: 1.8rem;
+    }
 }

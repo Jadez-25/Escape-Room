@@ -98,9 +98,9 @@ const LevelTwo = ({ onLevelComplete }) => {
     const nextStep = EMERGENCYSCENARIOS[scenarioKey].find(step => step.id === choice.nextId);
     if (!nextStep) return;
 
-    // Award 10 points if the next step is not a failure (e.g., not id 99)
+    // Award 15 points if the next step is not a failure (e.g., not id 99)
     if (choice.nextId !== 99) {
-      setScore(prev => prev + 10);
+      setScore(prev => prev + 15);
     }
 
     setStepId(choice.nextId);
@@ -176,7 +176,6 @@ const LevelTwo = ({ onLevelComplete }) => {
           <div className="level-two-score">
             Score: {score}
           </div>
-
           <button
             onClick={completeLevel}
             className="gotham-button"

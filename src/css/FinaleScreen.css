@@ -2,15 +2,16 @@
   background: linear-gradient(135deg, #1a1a1a, #333);
   color: #fff;
   text-align: center;
-  padding: 5rem 2rem;
+  padding-bottom: 4rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   animation: fadeIn 1.5s ease-in;
+  overflow-y: auto;
 }
 
 .finale-screen h1 {
@@ -29,8 +30,9 @@
 .finale-screen p {
   font-size: 1.2rem;
   line-height: 1.6;
-  max-width: 700px;
+  max-width: 90%;
   margin: 1rem auto;
+  padding: 0 1rem;
 }
 
 .continue-btn {
@@ -52,6 +54,72 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Medium screens (tablets and small laptops) */
+@media (max-width: 1024px) {
+  .finale-screen h1 {
+    font-size: 2.8rem;
+  }
+
+  .finale-screen .message {
+    font-size: 1.5rem;
+  }
+
+  .finale-screen p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .continue-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* Small screens (mobile and very small laptops) */
+@media (max-width: 768px) {
+  .finale-screen {
+    padding: 2rem 1rem;
+  }
+
+  .finale-screen h1 {
+    font-size: 2.2rem;
+  }
+
+  .finale-screen .message {
+    font-size: 1.3rem;
+  }
+
+  .finale-screen p {
+    font-size: 0.95rem;
+  }
+
+  .continue-btn {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+  }
+}
+
+canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.finale-screen>* {
+  position: relative;
+  z-index: 1;
 }

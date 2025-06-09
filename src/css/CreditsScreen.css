@@ -12,7 +12,7 @@
 }
 
 .credits-roll {
-  animation: scrollCredits 45s linear forwards; /* Slowed to 45s */
+  animation: scrollCredits 50s linear forwards; /* Slowed to 50s */
   text-align: center;
   font-size: 1.3rem;
   line-height: 2;
@@ -96,4 +96,57 @@
 .credits-skip-btn:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, #FFA500, #FFD700);
+}
+
+/* Medium screens (tablets and small laptops) */
+@media (max-width: 1024px) {
+  .credits-roll {
+    font-size: 1.1rem;
+  }
+
+  .credits-roll h2 {
+    font-size: 2rem;
+  }
+
+  .credits-roll h3 {
+    font-size: 1.7rem;
+  }
+
+  .credits-roll h4 {
+    font-size: 1.4rem;
+  }
+
+  .credits-skip-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* Small screens (mobile and very small laptops) */
+@media (max-width: 768px) {
+  .credits-container {
+    padding: 2rem 1rem;
+  }
+
+  .credits-roll {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .credits-roll h2 {
+    font-size: 1.8rem;
+  }
+
+  .credits-roll h3 {
+    font-size: 1.5rem;
+  }
+
+  .credits-roll h4 {
+    font-size: 1.2rem;
+  }
+
+  .credits-skip-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
 }
